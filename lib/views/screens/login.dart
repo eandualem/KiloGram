@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:tdlib/td_api.dart' show TdError;
-import 'package:kilogram/services/telegram_service.dart';
+import 'package:kilogram/services/client.dart';
 
 import 'package:provider/provider.dart';
 import 'package:country_pickers/country.dart';
@@ -134,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() {
       _loadingStep = true;
     });
-    context.read<TelegramService>().setAuthenticationPhoneNumber(
+    context.read<Client>().setAuthenticationPhoneNumber(
           (_selectedCountry != null)
               ? '+${_selectedCountry.phoneCode}$value'
               : value,

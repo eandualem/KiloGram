@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kilogram/services/telegram_service.dart';
+import 'package:kilogram/services/client.dart';
 import 'package:tdlib/td_api.dart' show TdError;
 import 'package:provider/provider.dart';
 
@@ -86,7 +86,7 @@ class _CodeEntryScreenState extends State<CodeEntryScreen> {
     setState(() {
       _loadingStep = true;
     });
-    context.read<TelegramService>().checkAuthenticationCode(
+    context.read<Client>().checkAuthenticationCode(
           value,
           onError: _handelError,
         );
